@@ -16,7 +16,7 @@ import org.apache.commons.configuration.PropertiesConfiguration;
 
 
 public class ConfigHelper {
-	final static String NOMEPASTA = "CASoft";
+	final static String NOMEPASTA = "Aeroglifo";
 	final static String NOMECONFIG = "config";
 	final static String TERMINACAO = ".properties";
 	
@@ -24,6 +24,37 @@ public class ConfigHelper {
 	final static String K_DADOS = "Dados";
 	final static String K_ORDEMDADOS = "Ordem";
 	final static String K_SENSORES = "Sensores";
+	
+	final static String K_GRAFICO1 = "IdGrafico1";
+	final static String K_GRAFICO2 = "IdGrafico2";
+	final static String K_GRAFICO3 = "IdGrafico3";
+	final static String K_GRAFICO4 = "IdGrafico4";
+	final static String K_GRAFICO5 = "IdGrafico5";
+	final static String K_GRAFICO6 = "IdGrafico6";
+	final static String K_CAMINHOVIDEO = "CaminhoVideo";
+	final static String K_TEMPODECOLAGEMVIDEO = "InstanteDecolagemVideo";
+	final static String K_TEMPODECOLAGEMDADO = "InstanteDecolagemDado";
+	final static String K_TEMPOPOUSODADO = "InstantePousoDados";
+	
+	final static String K_VELOCIDADEMAX = "VelocidadeMax";
+	final static String K_VELOCIDADEMIN = "VelocidadeMin";
+	final static String K_VELOCIDADETIPO = "VelocidadeTipo";
+	final static String K_ALTITUDEMAX = "AltitudeMax";
+	final static String K_ALTITUDEMIN = "AltitudeMin";
+	final static String K_ALTITUDETIPO = "AltitudeTipo";
+	final static String K_RPMMAX = "RpmMax";
+	final static String K_RPMMIN = "RpmMin";
+	final static String K_RPMTIPO = "RpmTipo";
+	final static String K_PRESSAOMAX = "PressaoMax";
+	final static String K_PRESSAOMIN = "PressaoMin";
+	final static String K_PRESSAOTIPO = "PressaoTipo";
+	final static String K_DEFPROFMAX = "DefProfMax";
+	final static String K_DEFPROFMIN = "DefProfMin";
+	final static String K_DEFLEMEMAX = "DefLemeMax";
+	final static String K_DEFLEMEMIN = "DefLemeMin";
+	final static String K_DEFAILERONMAX = "DefAileronMax";
+	final static String K_DEFAILERONMIN = "DefAileronMin";
+	
 	
 	final static String K_NOME = "Nome";
 	final static String K_ORDEMDADO = "Ordem";
@@ -34,6 +65,8 @@ public class ConfigHelper {
 	final static String K_EXIBIRTABELA = "ExibirTabela";
 	final static String K_EXIBIRBOTAODADO = "ExibirBotao";
 	final static String K_UNIDADE_DE_MEDIDA = "UnidadeMedida";
+	
+
 
 	
 	
@@ -257,6 +290,17 @@ public class ConfigHelper {
 		return a;
 	}
 	
+	public static double getCampoDouble(String arquivo, String campo){
+		double a = 0;
+		try {
+	    	PropertiesConfiguration config = new PropertiesConfiguration(new File(NOMEPASTA+"\\"+arquivo+TERMINACAO));		// Associa nome da propriedade com arquivo
+	    	a = config.getDouble(campo);		
+		} catch (ConfigurationException e) {
+			e.printStackTrace();
+		}
+		return a;
+	}
+	
 	
 	public static float getCampoFloat(String arquivo, String campo){
 		float a = 0;
@@ -373,10 +417,15 @@ public class ConfigHelper {
 		return listaInt;
 	}
 	
-	public static List<String> getValorDados(String arquivo){
+	public static List<Float> getValorDados(String arquivo){
 		List<String> lista;
+		List<Float> listaFloat = new ArrayList<Float>();
 		lista = new ArrayList<String>(Arrays.asList(getCampoStringArray(arquivo, K_VALOR)));
-		return lista;
+		for (int i = 0; i < lista.size(); i++) {
+			//System.out.println("passou aqui: AAAAAAAAAAAAAAAAAAAAAAAAAAA: "+lista.get(i));
+			listaFloat.add(Float.parseFloat(lista.get(i)));
+		}
+		return listaFloat;
 	}
 	
 	public static boolean existeArquivo(String nomeArquivo) {

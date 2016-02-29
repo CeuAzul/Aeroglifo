@@ -14,6 +14,12 @@ public class GerenteDeDados {
 	public static final int ERRO_ARQUIVO_SEM_NOME = -3;
 	public static final int DEU_BOA = 1;
 	
+	public static final int SEM_ESCALA = -1;
+	public static final int SEGUNDOS = 0;
+	public static final int MILISSEGUNDOS = 1;
+
+	
+	
 	/* Este método verifica se o arquivo de configuração exite, se tem dados.
 	 * se tiver ele carrega os dados nos vetores e associa os arquivos
 	 */
@@ -122,6 +128,21 @@ public class GerenteDeDados {
 	}
 	
 	
+	public static int getEscalaTempo() {
+		String escrito = dado.get(getIndiceTendoOrdem(0)).getUnidadeDeMedida();
+		if(escrito.isEmpty()) {
+			return -1;
+		}
+		if(escrito.toLowerCase().startsWith("s")) {
+			return 0;
+		}else if(escrito.toLowerCase().startsWith("m")) {
+			return 1;
+		}else {
+			return -1;
+		}
+	}
+	
+	
 	private static boolean temNomeRepetido(String nome) {
 		return config.getDados().contains(nome);
 	}
@@ -195,7 +216,12 @@ public class GerenteDeDados {
 	
 	public static void associaValoresDoProgramaAosValoresDosArquivosDeConfiguracao() {
 		for (int i = 0; i < dado.size(); i++) {
-			ConfigHelper.setCampo(dado.get(i).getNomeDado(), ConfigHelper.K_VALOR, dado.get(i).getValor());
+			List<String> listaString = new ArrayList<String>();
+			for (int j = 0; j < dado.get(i).valor.size(); j++) {
+				listaString.add(dado.get(i).valor.get(j)+"");
+			}
+			ConfigHelper.setCampo(dado.get(i).getNomeDado(), ConfigHelper.K_VALOR, listaString);
+			dado.get(i).valor.clear();
 		}
 		
 	}
@@ -206,6 +232,19 @@ public class GerenteDeDados {
 	
 	public static int getIndiceTendoOrdem(int ordem) {
 		return ArrayUtils.indexOf(GerenteDeDados.config.getOrdem().toArray(), ordem);
+	}
+
+
+
+	public static void setEscalaDeTempo(int escala) {
+		if(escala == SEGUNDOS) {
+			GerenteDeDados.dado.get(getIndiceTendoOrdem(0)).setUnidadeDeMedida("Segundos");
+		}else if(escala ==MILISSEGUNDOS) {
+			GerenteDeDados.dado.get(getIndiceTendoOrdem(0)).setUnidadeDeMedida("Milisegundos");
+		}else{
+			GerenteDeDados.dado.get(getIndiceTendoOrdem(0)).setUnidadeDeMedida("");
+		}
+		
 	}
 
 }

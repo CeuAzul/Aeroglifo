@@ -10,7 +10,7 @@ public class Dado {
 	boolean associado;
 	String tipoVariavel;
 	String sensor;
-	List<String> valor = new ArrayList<String>();
+	List<Float> valor = new ArrayList<Float>();	// Esta variavel apenas é usada para associar o CSV com o arquivo de texto, depois ela é eliminada para diminuir memória gasta
 	boolean exibeTabela;
 	boolean exibeBotao;
 	String unidadeDeMedida;
@@ -44,7 +44,8 @@ public class Dado {
 		return sensor;
 	}
 	
-	public List<String> getValor() {
+	public List<Float> getValor() {
+		List<Float> valor = ConfigHelper.getValorDados(nomeDado);
 		return valor;
 	}
 	
@@ -99,14 +100,15 @@ public class Dado {
 	
 	public void addValor(String valor) {
 		ConfigHelper.setCampo(nomeDado, ConfigHelper.K_VALOR, valor, true);
-		this.valor.add(valor);
+		float valorF = Float.parseFloat(valor);
+		this.getValor().add(valorF);
 	}
 	
 	
 	
 	public void limpaValor() {
 		ConfigHelper.limpaCampo(nomeDado, ConfigHelper.K_VALOR);
-		this.valor.clear();
+		this.getValor().clear();
 	}
 	
 	public void setExibeTabela(boolean exibeTabela) {
@@ -136,7 +138,7 @@ public class Dado {
 		if(ConfigHelper.existeArquivo(nomeDado)) {
 			deuBoa = true;
 			this.nomeDado = ConfigHelper.getCampoString(nomeDado, ConfigHelper.K_NOME);
-			System.out.println(this.nomeDado);
+			//System.out.println(this.nomeDado);
 			this.associado = ConfigHelper.getCampoBoolean(nomeDado, ConfigHelper.K_ASSOCIACAO);
 			this.ordemDado = ConfigHelper.getCampoInt(nomeDado, ConfigHelper.K_ORDEMDADO);
 			this.tipoVariavel = ConfigHelper.getCampoString(nomeDado, ConfigHelper.K_TIPOVARIAVEL);
@@ -144,7 +146,7 @@ public class Dado {
 			this.exibeTabela = ConfigHelper.getCampoBoolean(nomeDado, ConfigHelper.K_EXIBIRTABELA);
 			this.exibeBotao = ConfigHelper.getCampoBoolean(nomeDado, ConfigHelper.K_EXIBIRBOTAODADO);
 			this.unidadeDeMedida = ConfigHelper.getCampoString(nomeDado, ConfigHelper.K_UNIDADE_DE_MEDIDA);	
-			this.valor = ConfigHelper.getValorDados(nomeDado);
+			
 		}else{
 			deuBoa = false;
 			System.out.println("Essa porra de dado (arquivo) não existe");
@@ -161,8 +163,8 @@ public class Dado {
 /* 			Função utilizada para associar os valores do .csv com os arquivos pela primeira vez */
 	
 	public void associaValorAoPrograma(String valorNovo) {
-		this.valor.add(valorNovo);
-		System.out.println("numero de valores associados: "+valorNovo.length());
+		this.valor.add(Float.parseFloat(valorNovo));
+	//	System.out.println("numero de valores associados: "+valorNovo.length());
 		
 		
 	}

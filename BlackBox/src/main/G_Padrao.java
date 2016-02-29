@@ -19,6 +19,7 @@ import org.jfree.chart.plot.Marker;
 import org.jfree.chart.plot.PlotOrientation;
 import org.jfree.chart.plot.ValueMarker;
 import org.jfree.chart.plot.XYPlot;
+import org.jfree.chart.renderer.xy.StandardXYItemRenderer;
 import org.jfree.data.xy.XYSeries;
 import org.jfree.data.xy.XYSeriesCollection;
 import org.jfree.ui.Layer;
@@ -34,6 +35,9 @@ public class G_Padrao {
 	List<Float> valorX = new ArrayList<Float>();
 	List<Float> valorY = new ArrayList<Float>();
 	JFreeChart chart;
+	int indice=0;
+    private List<XYSeriesCollection> seriesArrayList = new ArrayList<XYSeriesCollection>();
+
 	
 	public String getNomeGrafico() {
 		return nomeGrafico;
@@ -65,6 +69,18 @@ public class G_Padrao {
 
 	public void setId(int id) {
 		this.id = id;
+	}
+	
+	public void adicionaDadoGrafico(List<Float> lX, List<Float> lY, String nomeDado) {
+    	final XYPlot plot = chart.getXYPlot();
+    	XYSeries series = new XYSeries(nomeDado);
+		for (int i = 0; i < lX.size(); i++) {
+			series.add(lX.get(i), lY.get(i));
+		}
+        seriesArrayList.add(new XYSeriesCollection(series));
+        plot.setDataset(indice, seriesArrayList.get(indice));
+        plot.setRenderer(indice, new StandardXYItemRenderer());
+        indice++;
 	}
 
 
@@ -103,10 +119,11 @@ public class G_Padrao {
 
 	
 	
-	public void setValores(List<String> sValorX, List<String> sValorY) {
-		for (int i = 0; i < sValorX.size(); i++) {
-			valorX.add(Float.parseFloat(sValorX.get(i)));
-			valorY.add(Float.parseFloat(sValorY.get(i)));
+	public void setValores(List<Float> list, List<Float> list2) {
+		for (int i = 0; i < list.size(); i++) {
+		//	System.out.println("CARREGOU ESSA PUTARIA?????????????????????????"+list.get(i));
+			valorX.add(list.get(i));
+			valorY.add(list2.get(i));
 		}
 	}
 	
@@ -114,12 +131,11 @@ public class G_Padrao {
 		
 		// Create a simple XY chart
 				XYSeries series = new XYSeries(nomeGrafico);
-				for (int i = 0; i < valorX.size(); i++) {
-					series.add(valorX.get(i), valorY.get(i));
-				}
+
 				// Add the series to your data set
 				XYSeriesCollection dataset = new XYSeriesCollection();
 				dataset.addSeries(series);
+				
 				// Generate the graph
 				chart = ChartFactory.createXYLineChart(
 						nomeGrafico, // Title
@@ -143,8 +159,13 @@ public class G_Padrao {
 
 				plot.setRangeGridlinePaint(Color.black);
 				plot.setDomainGridlinesVisible(false);
+				
+				
+				adicionaDadoGrafico(valorX, valorY, nomeGrafico);
+
+				valorX.clear();
+				valorY.clear();
 				return chPanel;
 	}
-	
 	
 }

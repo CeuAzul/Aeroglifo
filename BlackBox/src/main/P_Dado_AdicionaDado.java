@@ -59,6 +59,7 @@ import javax.swing.JList;
 import javax.swing.AbstractListModel;
 
 import org.apache.commons.lang.ArrayUtils;
+import javax.swing.ImageIcon;
 
 
 public class P_Dado_AdicionaDado extends JFrame{
@@ -98,7 +99,8 @@ public class P_Dado_AdicionaDado extends JFrame{
                 new SharedListSelectionHandler());
 		scrollPane.setViewportView(list);
 		
-		btnCima = new JButton("\u2191");
+		btnCima = new JButton("");
+		btnCima.setIcon(new ImageIcon(P_Dado_AdicionaDado.class.getResource("/icons/Tabela/Cima.png")));
 		panel.add(btnCima, "cell 1 0");
 		
 		btnCima.addActionListener(new ActionListener() {
@@ -116,7 +118,8 @@ public class P_Dado_AdicionaDado extends JFrame{
 		panel.add(tfNomeDado, "cell 3 0,growx");
 		tfNomeDado.setColumns(10);
 		
-		btnBaixo = new JButton("\u2193");
+		btnBaixo = new JButton("");
+		btnBaixo.setIcon(new ImageIcon(P_Dado_AdicionaDado.class.getResource("/icons/Tabela/Baixo.png")));
 		panel.add(btnBaixo, "cell 1 1");
 		
 		btnBaixo.addActionListener(new ActionListener() {
@@ -153,9 +156,11 @@ public class P_Dado_AdicionaDado extends JFrame{
 		panel.add(chckbxExibeNosBotes, "cell 3 4,alignx left");
 		
 		btnOk = new JButton("Adicionar");
+		btnOk.setIcon(new ImageIcon(P_Dado_AdicionaDado.class.getResource("/icons/Graficos/Adicionar.png")));
 		panel.add(btnOk, "cell 2 5 2 1,growx");
 		
-		btnDeletar = new JButton("Del");
+		btnDeletar = new JButton("");
+		btnDeletar.setIcon(new ImageIcon(P_Dado_AdicionaDado.class.getResource("/icons/Editardados/Lixeira.png")));
 		panel.add(btnDeletar, "cell 1 6,growx");
 		
 		btnDeletar.addActionListener(new ActionListener() {

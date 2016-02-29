@@ -2,6 +2,7 @@ package main;
 
 import java.io.Externalizable;
 
+import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
@@ -18,6 +19,9 @@ public class I_Dado {
 		pAdicionaDado.setIdado(this);
 		pAdicionaDado.pack();
 		pAdicionaDado.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+		pAdicionaDado.setLocationRelativeTo(null);  // *** this will center your app ***
+		pAdicionaDado.setIconImage(new ImageIcon(P_Control.class.getResource("/icons/Main/Icone2.png")).getImage());
+
 		pAdicionaDado.setVisible(false);
 		pAdicionaDado.addWindowListener(new java.awt.event.WindowAdapter() {
 		    @Override
@@ -217,4 +221,5 @@ public class I_Dado {
 		c.atualizaTabela();
 		
 	}
+
 }
