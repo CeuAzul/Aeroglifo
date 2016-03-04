@@ -16,7 +16,7 @@ import org.apache.commons.configuration.PropertiesConfiguration;
 
 
 public class ConfigHelper {
-	final static String NOMEPASTA = "Aeroglifo";
+	final static String NOMEPASTA = "AeroglifoData";
 	final static String NOMECONFIG = "config";
 	final static String TERMINACAO = ".properties";
 	

@@ -139,8 +139,8 @@ public class P_Control extends JFrame{
 	public P_Control(final ControlBox c) {
 		super("Aeróglifo");
 		this.c = c;
-
-		table.setSelectionMode(ListSelectionModel.MULTIPLE_INTERVAL_SELECTION);
+		
+		table.setSelectionMode(ListSelectionModel.SINGLE_INTERVAL_SELECTION);
 		//table.setColumnSelectionAllowed(false);
 		table.setRowSelectionAllowed(true);
 		//table.setCellSelectionEnabled(false);

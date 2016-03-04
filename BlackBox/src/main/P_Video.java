@@ -27,6 +27,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.PrintWriter;
+import java.io.StringWriter;
 import java.net.URISyntaxException;
 import java.net.URL;
 import java.net.URLDecoder;
@@ -180,12 +181,9 @@ public class P_Video extends JFrame{
     
     I_Video i;
     
-	public P_Video(final I_Video i_Video) throws IOException {
+	public P_Video(final I_Video i_Video) throws Exception {
 		super("CaSoft");
 		i = i_Video;
-		
-		
-		NativeLibrary.addSearchPath(RuntimeUtil.getLibVlcLibraryName(), System.getProperty("user.dir") + "/lib/VLC");
 		mediaPlayerComponent= new EmbeddedMediaPlayerComponent();
 		embeddedMediaPlayer = mediaPlayerComponent.getMediaPlayer();
 		setPreferredSize(new Dimension(1280, 800));
@@ -253,13 +251,18 @@ public class P_Video extends JFrame{
 		JButton btnSelecionarVdeos = new JButton("Selecionar V\u00EDdeo");
 		btnSelecionarVdeos.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+    	    	JOptionPane.showMessageDialog(null,"Lembre-se: O caminho do vídeo não pode conter caracteres especiais nem letras não-inglesas.\nMude a pasta e o nome do vídeo caso for necessário.");
 		    	JFileChooser fileChooser = new JFileChooser();
 		    	fileChooser.setCurrentDirectory(new File(System.getProperty("user.dir")));
 		    	int result = fileChooser.showOpenDialog(P_Video.this);
 		    	if (result == JFileChooser.APPROVE_OPTION) {
 		    	    File selectedFile = fileChooser.getSelectedFile();
 		    	    System.out.println("Selected file: " + selectedFile.getAbsolutePath());
-		    	    i_Video.carregaVideo(selectedFile.getAbsolutePath());
+		    	    try {
+		    	    	i_Video.carregaVideo(selectedFile.getAbsolutePath());
+		    	    }catch(Exception e) {
+		    	    	JOptionPane.showMessageDialog(null,getStackTrace(e));
+		    	    }
 		    	}
 			}
 		});
@@ -1162,6 +1165,13 @@ public class P_Video extends JFrame{
 		    jarFile = new File(jarFilePath);
 		  }
 		  return jarFile.getParentFile().getAbsolutePath();
+	}
+	
+	public static String getStackTrace(final Throwable throwable) {
+	     final StringWriter sw = new StringWriter();
+	     final PrintWriter pw = new PrintWriter(sw, true);
+	     throwable.printStackTrace(pw);
+	     return sw.getBuffer().toString();
 	}
 
 }

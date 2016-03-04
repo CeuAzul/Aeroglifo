@@ -50,9 +50,9 @@ public class P_Video_SelecionaDados extends JFrame{
 	JButton btnSelecionarPresso = new JButton("Selecionar Press\u00E3o");
 	JButton btnSelecionarAltura = new JButton("Selecionar Altura");
 	JButton btnSelecionarRpm = new JButton("Selecionar RPM");
-	JButton btnSelecionarDeflexoProfundor = new JButton("Selecionar Deflex\u00E3o Profundor");
-	JButton btnSelecionarDeflexoLeme = new JButton("Selecionar Deflex\u00E3o Leme");
-	JButton btnSelecionarDeflexoAileron = new JButton("Selecionar Deflex\u00E3o Aileron");
+	JButton btnSelecionarDeflexoProfundor = new JButton("Selecionar Fator de carga X");
+	JButton btnSelecionarDeflexoLeme = new JButton("Selecionar Fator de carga Y");
+	JButton btnSelecionarDeflexoAileron = new JButton("Selecionar Fator de carga Z");
 	JButton btnSelecionarWow = new JButton("Selecionar Wow");
 
 

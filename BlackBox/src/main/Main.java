@@ -3,7 +3,12 @@ import java.awt.EventQueue;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
 import java.io.InputStream;
+import java.io.PrintWriter;
+import java.io.StringWriter;
+import java.net.URLDecoder;
+import java.security.CodeSource;
 import java.util.concurrent.TimeUnit;
 
 import javax.swing.JFrame;
@@ -41,12 +46,21 @@ import org.pushingpixels.substance.api.skin.SubstanceRavenLookAndFeel;
 import org.pushingpixels.substance.api.skin.SubstanceSaharaLookAndFeel;
 import org.pushingpixels.substance.api.skin.SubstanceTwilightLookAndFeel;
 
+import com.sun.jna.NativeLibrary;
+
+import uk.co.caprica.vlcj.runtime.RuntimeUtil;
+
 import javax.swing.SwingUtilities;
 
 public class Main{
 	
     
 	public static void main(String[] args)  throws InterruptedException {
+		if(Integer.parseInt(System.getProperty("sun.arch.data.model")) == 64) {
+			NativeLibrary.addSearchPath(RuntimeUtil.getLibVlcLibraryName(), System.getProperty("user.dir") + "\\Lib\\VLC64");
+		}else {
+			NativeLibrary.addSearchPath(RuntimeUtil.getLibVlcLibraryName(), System.getProperty("user.dir") + "\\Lib\\VLC32");
+		}
 		SplashHelper.iniciaSplash();
 	    JFrame.setDefaultLookAndFeelDecorated(true);
 	    SwingUtilities.invokeLater(new Runnable() {
@@ -54,11 +68,10 @@ public class Main{
 	        try {
 
 	      //    UIManager.setLookAndFeel(new SubstanceCeruleanLookAndFeel());
-		 //         UIManager.setLookAndFeel(new SubstanceBusinessBlackSteelLookAndFeel());
+		 //     UIManager.setLookAndFeel(new SubstanceBusinessBlackSteelLookAndFeel());
 	        	UIManager.setLookAndFeel(new SubstanceBusinessBlackSteelLookAndFeel());
 	        	UIManager.setLookAndFeel(new SubstanceBusinessBlackSteelLookAndFeel());
 
-	       // 	UIManager.put(SubstanceLookAndFeel.COLORIZATION_FACTOR, 1.0);
 	        	changeFonts(new Font("Lucida Sans", Font.PLAIN, 12));
 
 	        } catch (Exception e) {
@@ -114,7 +127,5 @@ public class Main{
 
 	//	config.applyLookAndFeel(config.LOOK_AND_FEEL);
 	}
-	
-	
 }
 	  

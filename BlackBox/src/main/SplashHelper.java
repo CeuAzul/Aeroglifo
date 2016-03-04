@@ -6,7 +6,7 @@ import java.util.concurrent.TimeUnit;
 
 
 public class SplashHelper {
-	   final static InputStream imageStream4 = Main.class.getResourceAsStream("/icons/Main/Splash.png");
+	   final static InputStream imageStream4 = Main.class.getResourceAsStream("/icons/Main/Splash Screen mais Branca massa.png");
 	   final static ProgressSplashScreen splashScreen4 = new ProgressSplashScreen(imageStream4);
 	   
 	public static void iniciaSplash()  throws InterruptedException {

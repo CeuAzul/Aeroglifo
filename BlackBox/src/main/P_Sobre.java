@@ -109,7 +109,7 @@ public class P_Sobre extends JFrame{
 		
 		lblAerglifoPrograma = new JLabel("  Aer\u00F3glifo  - Programa de visualiza\u00E7\u00E3o, edi\u00E7\u00E3o e an\u00E1lise de dados de telemetria");
 		panel_3.add(lblAerglifoPrograma, "cell 0 0");
-		lblAerglifoPrograma.setIcon(new ImageIcon(P_Sobre.class.getResource("/icons/Main/Icone.png")));
+		lblAerglifoPrograma.setIcon(new ImageIcon(P_Sobre.class.getResource("/icons/Main/icones/icone-64x64.png")));
 		
 		lblVersobeta = new JLabel("Vers\u00E3o 1.0.0 (Beta)");
 		lblVersobeta.setHorizontalAlignment(SwingConstants.CENTER);
@@ -132,13 +132,13 @@ public class P_Sobre extends JFrame{
 		lblProgramaoLeonardoMariga.setHorizontalAlignment(SwingConstants.CENTER);
 		panel_3.add(lblProgramaoLeonardoMariga, "cell 0 1,growx");
 		
-		lblNewLabel = new JLabel("Rafael Ara\u00FAjo Lehmkuhl (rafael.lehmkuhl93@gmail.com)");
-		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
-		panel_3.add(lblNewLabel, "cell 0 1,growx");
-		
 		lblCarolineMariga = new JLabel("Caroline Mariga (carolmariga@gmail.com)");
 		lblCarolineMariga.setHorizontalAlignment(SwingConstants.CENTER);
 		panel_3.add(lblCarolineMariga, "cell 0 1,growx");
+		
+		lblNewLabel = new JLabel("Rafael Ara\u00FAjo Lehmkuhl (rafael.lehmkuhl93@gmail.com)");
+		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
+		panel_3.add(lblNewLabel, "cell 0 1,growx");
 		
 		panel_4 = new JPanel();
 		panel_3.add(panel_4, "cell 0 1,growx");

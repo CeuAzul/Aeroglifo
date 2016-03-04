@@ -47,7 +47,7 @@ class ProgressSplashScreen extends JWindow {
        throw new IllegalArgumentException(String.format("Can't load splashscreen"), e);
      }
      final JPanel contentPanel = new JPanel(new BorderLayout());
-     contentPanel.setBorder(BorderFactory.createBevelBorder(BevelBorder.RAISED));
+   //  contentPanel.setBorder(BorderFactory.createBevelBorder(BevelBorder.RAISED));
   //   contentPanel.setBackground(new Color(0, 0, 0, 0));
      contentPanel.setOpaque(false);
     // splashScreenImage.se

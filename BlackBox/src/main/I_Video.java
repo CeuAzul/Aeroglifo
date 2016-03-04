@@ -57,6 +57,9 @@ public class I_Video {
 		} catch (IOException e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
+		} catch (Exception e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
 		}
 		pVideo.pack();
 		pVideo.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
@@ -69,21 +72,21 @@ public class I_Video {
             }
         });
         pVideo.setLocationRelativeTo(null);
-        pVideo.setIconImage(new ImageIcon(P_Control.class.getResource("/icons/Main/Icone2.png")).getImage());
+        pVideo.setIconImages(c.icons);
         
         pVideoSelecionaDados = new P_Video_SelecionaDados(this);
         pVideoSelecionaDados.pack();
         pVideoSelecionaDados.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         pVideoSelecionaDados.setVisible(false);
         pVideoSelecionaDados.setLocationRelativeTo(null);
-        pVideoSelecionaDados.setIconImage(new ImageIcon(P_Control.class.getResource("/icons/Main/Icone2.png")).getImage());
+        pVideoSelecionaDados.setIconImages(c.icons);
         
         pVideoSincronizaDados = new P_Video_SincronizaDados(this);
         pVideoSincronizaDados.pack();
         pVideoSincronizaDados.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         pVideoSincronizaDados.setVisible(false);
         pVideoSincronizaDados.setLocationRelativeTo(null);
-        pVideoSincronizaDados.setIconImage(new ImageIcon(P_Control.class.getResource("/icons/Main/Icone2.png")).getImage());
+        pVideoSincronizaDados.setIconImages(c.icons);
 
  //       atualizaBotoesSensores();
 

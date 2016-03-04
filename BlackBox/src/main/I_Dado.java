@@ -20,7 +20,7 @@ public class I_Dado {
 		pAdicionaDado.pack();
 		pAdicionaDado.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		pAdicionaDado.setLocationRelativeTo(null);  // *** this will center your app ***
-		pAdicionaDado.setIconImage(new ImageIcon(P_Control.class.getResource("/icons/Main/Icone2.png")).getImage());
+		pAdicionaDado.setIconImages(c.icons);
 
 		pAdicionaDado.setVisible(false);
 		pAdicionaDado.addWindowListener(new java.awt.event.WindowAdapter() {

@@ -2,8 +2,10 @@ package main;
 import java.awt.Color;
 import java.awt.EventQueue;
 import java.awt.GridLayout;
+import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
 import java.io.InputStream;
 import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
@@ -11,6 +13,7 @@ import java.util.Collections;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
+import javax.imageio.ImageIO;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.ImageIcon;
 import javax.swing.JComboBox;
@@ -41,12 +44,23 @@ int paginaAtual=1;
 int totalPaginas=0;
 int intervaloDeRegistros = 100;
 int registrosNaUltimaPagina = 0;
-
+final List<Image> icons = new ArrayList<Image>();
 float tempoDecolagem, tempoPouso;
 	public ControlBox() throws InterruptedException { 
 
+
+        try {
+			icons.add(ImageIO.read(P_Control.class.getResource("/icons/Main/icones/icone-16x16.png")));
+			icons.add(ImageIO.read(P_Control.class.getResource("/icons/Main/icones/icone-32x32.png")));
+			icons.add(ImageIO.read(P_Control.class.getResource("/icons/Main/icones/icone-64x64.png")));
+			icons.add(ImageIO.read(P_Control.class.getResource("/icons/Main/icones/icone-128x128.png")));
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+        
 		painel.pack();
-		painel.setIconImage(new ImageIcon(P_Control.class.getResource("/icons/Main/Icone2.png")).getImage());
+		painel.setIconImages(icons);
 		painel.setVisible(true);
 		painel.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		System.out.println("abriu a box");
@@ -65,7 +79,7 @@ float tempoDecolagem, tempoPouso;
 		painelSobre.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		painelSobre.setVisible(false);
 		painelSobre.setLocationRelativeTo(null);
-		painelSobre.setIconImage(new ImageIcon(P_Control.class.getResource("/icons/Main/Icone2.png")).getImage());
+		painelSobre.setIconImages(icons);
 		
 	}
 
