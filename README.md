@@ -1,7 +1,8 @@
 # Aeroglifo
 
-
-![cover](https://github.com/CeuAzul/Aeroglifo/blob/master/Assets/Mainscreen.gif) 
+![](https://github.com/CeuAzul/Aeroglifo/blob/master/assets/graphs.png)  |  ![](https://github.com/CeuAzul/Aeroglifo/blob/master/assets/table.png)
+:-------------------------:|:-------------------------:
+![cover](https://github.com/CeuAzul/Aeroglifo/blob/master/assets/Mainscreen.gif) 
 
 ### What is Aeróglifo?
 Aeróglifo is a post-flight data analysis software for VANTs. It reads a CSV file from a flight and organizes the data for an optimized readability. This software enables the user to generate graphics for multiple flight parameters, adding filters if necessary. Aeróglifo has a built in graphic analysis tool in which is possible to synchronize flight data and a video from the flight.
