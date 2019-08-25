@@ -1,16 +1,16 @@
 # Aeróglifo
 
-
+Graph | Table
 :-------------------------:|:-------------------------:
 ![](https://github.com/CeuAzul/Aeroglifo/blob/master/assets/graphs.png)  |  ![](https://github.com/CeuAzul/Aeroglifo/blob/master/assets/table.png)
 
 
 ![cover](https://github.com/CeuAzul/Aeroglifo/blob/master/assets/Mainscreen.gif) 
 
-### What is Aeróglifo?
+## What is Aeróglifo?
 Aeróglifo is a post-flight data analysis software for VANTs. It reads a CSV file from a flight and organizes the data for an optimized readability. This software enables the user to **generate graphics** for multiple flight parameters and **add filters**. Aeróglifo has a built in **video analysis tool** in which is possible to **synchronize flight data and a video**.
 
-### Setup
+## Setup
 
 - Fork this repository.
 - Clone the project in your local files.
@@ -20,11 +20,11 @@ Aeróglifo is a post-flight data analysis software for VANTs. It reads a CSV fil
 - Compile and be happy :blush:
 
 
-### An advise
+## An advise
 
-**Never** use Java for data analysis. Don't be stupid :wink:
+> **Never** use Java for data analysis. Don't be stupid :wink:
 
-### Contact
+## Contact
 
 Developed with :heart: by [Leonardo Mariga](https://github.com/leomariga) (leomariga@gmail.com)
 
