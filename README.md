@@ -1,2 +1,4 @@
+![cover](https://github.com/CeuAzul/Aeroglifo/blob/master/Assets/Mainscreen.gif) 
+
 # Aeroglifo
-Software de análise de voo da Céu Azul
+## Flight Analysis Software for Céu Azul
