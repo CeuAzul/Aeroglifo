@@ -1,6 +1,6 @@
 # Aeróglifo
 
-Graph view             |  Data visualization
+
 :-------------------------:|:-------------------------:
 ![](https://github.com/CeuAzul/Aeroglifo/blob/master/assets/graphs.png)  |  ![](https://github.com/CeuAzul/Aeroglifo/blob/master/assets/table.png)
 
@@ -17,4 +17,16 @@ Aeróglifo is a post-flight data analysis software for VANTs. It reads a CSV fil
 - Install [Eclipse](https://www.eclipse.org) IDE.
 - Choose a workspace of your preference.
 - Import an existing project and select the root of this repository.
-- Compile and be happy
+- Compile and be happy :blush:
+
+
+### An advise
+
+**Never** use Java for data analysis. Don't be stupid :wink:
+
+### Contact
+
+Developed with :heart: by [Leonardo Mariga](https://github.com/leomariga) (leomariga@gmail.com)
+
+**Special thanks to:** Caroline Mariga and Céu Azul Team. 
+
