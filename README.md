@@ -1,7 +1,10 @@
 # Aeróglifo
 
+Graph view             |  Data visualization
+:-------------------------:|:-------------------------:
 ![](https://github.com/CeuAzul/Aeroglifo/blob/master/assets/graphs.png)  |  ![](https://github.com/CeuAzul/Aeroglifo/blob/master/assets/table.png)
-:--------------------------------------------------:
+
+
 ![cover](https://github.com/CeuAzul/Aeroglifo/blob/master/assets/Mainscreen.gif) 
 
 ### What is Aeróglifo?
